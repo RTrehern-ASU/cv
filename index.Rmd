@@ -39,7 +39,14 @@ Aside
 
 ![logo](TREHERN.jpg){width=100%}
 
-
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this Resume](https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf)")
+}
+```
 
 Contact {#contact}
 --------------------------------------------------------------------------------
