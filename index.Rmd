@@ -30,7 +30,17 @@ source('parsing_functions.R')
 position_data <- read_csv('positions.csv')
 ```
 
-
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
 
 
 Aside
@@ -41,7 +51,7 @@ Aside
 
 ```{r}
 if(PDF_EXPORT){
-  cat("")
+  cat("View this CV online with links at github.com/RTrehern-ASU/cv")
 } else {
   cat("[<i class='fas fa-download'></i> Download a PDF of this Resume](https://github.com/RTrehern-ASU/cv/blob/main/Trehern_Resume.pdf)")
 }
@@ -153,3 +163,21 @@ Honors and Recognition  {data-icon=award}
 print_section(position_data, 'honors')
 ```
 
+
+```{r}
+if(PDF_EXPORT){
+  cat("
+  
+Links {data-icon=link}
+--------------------------------------------------------------------------------
+
+<br>
+
+
+")
+  
+  walk2(links, 1:length(links), function(link, index){
+    print(glue('{index}. {link}'))
+  })
+}
+```
