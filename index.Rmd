@@ -44,7 +44,7 @@ Aside
 if(PDF_EXPORT){
   cat("")
 } else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this Resume](https://github.com/nstrayer/cv/raw/master/strayer_cv.pdf)")
+  cat("[<i class='fas fa-download'></i> Download a PDF of this Resume](https://github.com/RTrehern-ASU/cv/blob/main/Trehern_Resume.pdf)")
 }
 ```
 
