@@ -1,0 +1,188 @@
+---
+title: "Robert M. Trehern CV"
+author: Robert M. Trehern
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    css: ['css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis',
+  echo = FALSE
+)
+
+library(glue)
+library(tidyverse)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- FALSE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+# Load csv with position info
+position_data <- read_csv('positions.csv')
+```
+
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that.
+if(PDF_EXPORT){
+  cat("
+  <style>
+  :root{
+    --decorator-outer-offset-left: -6.5px;
+  }
+  </style>")
+}
+```
+
+
+Aside
+================================================================================
+
+
+![logo](TREHERN.jpg){width=100%}
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that.
+if(PDF_EXPORT){
+  cat("")
+} else {
+  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rtrehern-ASU/cv/raw/master/trehern_cv.pdf)")
+}
+```
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+
+- <i class="fa fa-envelope"></i> robert.m.trehern@gmail.com
+- <i class="fa fa-github"></i> github.com/RTrehern-ASU
+- <i class="fa fa-phone"></i> +49 (152) 2440-8953
+
+
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+Made with the R package 
+[**pagedown**](https://github.com/rstudio/pagedown).
+
+The source code is available at [github.com/RTrehern-ASU/cv](https://github.com/RTrehern-ASU/cv).
+
+Last updated on `r Sys.Date()`.
+
+
+
+
+Main
+================================================================================
+
+Mike Trehern {#title}
+--------------------------------------------------------------------------------
+
+
+```{r}
+intro_text <- "I am a Chief Warrant Officer Three (CW3) assigned to the U.S. Army Criminal Investigation Command (CID). I have 19 years of law enforcement experience with over 17 years in leadership positions. I have supervised more than 1,500 felony criminal investigations and completed numerous military and civilian law enforcement investigative and leadership courses.  
+
+I have travelled extensively and have a vast amount of experience working with governmental and non-governmental organizations around the world. Through my travels and networking, I have developed in-depth cultural awareness and a network of contacts in more than 20 countries spanning five continents.
+
+I am currently searching for a Criminal Intelligence Analyst position where I can combine my law enforcement and military experience with newly acquired skills in data analytics. I hope to use these skills and abilities to help combat violent crime and human trafficking; as well as, help identify transnational criminal and terrorist organizations."
+
+cat(sanitize_links(intro_text))
+```
+
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'education')
+```
+
+
+
+Work Experience {data-icon=globe}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'positions')
+```
+
+<br>
+<br>
+<br>
+
+Leadership Training {data-icon=bullseye}
+--------------------------------------------------------------------------------
+
+
+
+```{r}
+print_section(position_data, 'leadership')
+```
+
+
+Military Law Enforcement Training {data-icon=search}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'militaryletraining')
+```
+
+
+
+Civilian Law Enforcement Training  {data-icon=fingerprint}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'civilianletraining')
+```
+
+
+
+
+Military Awards  {data-icon=medal}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'milawards')
+```
+
+
+Honors and Recognition  {data-icon=award}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section(position_data, 'honors')
+```
+
+
+
+
+```{r}
+if(PDF_EXPORT){
+  cat("
+
+Links {data-icon=link}
+--------------------------------------------------------------------------------
+
+<br>
+
+
+")
+
+  walk2(links, 1:length(links), function(link, index){
+    print(glue('{index}. {link}'))
+  })
+}
+```
