@@ -31,17 +31,6 @@ position_data <- read_csv('positions.csv')
 ```
 
 
-```{r}
-# When in export mode the little dots are unaligned, so fix that.
-if(PDF_EXPORT){
-  cat("
-  <style>
-  :root{
-    --decorator-outer-offset-left: -6.5px;
-  }
-  </style>")
-}
-```
 
 
 Aside
@@ -50,14 +39,7 @@ Aside
 
 ![logo](TREHERN.jpg){width=100%}
 
-```{r}
-# When in export mode the little dots are unaligned, so fix that.
-if(PDF_EXPORT){
-  cat("")
-} else {
-  cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/rtrehern-ASU/cv/raw/master/trehern_cv.pdf)")
-}
-```
+
 
 Contact {#contact}
 --------------------------------------------------------------------------------
