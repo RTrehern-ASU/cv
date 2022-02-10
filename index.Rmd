@@ -91,11 +91,9 @@ Mike Trehern {#title}
 
 
 ```{r}
-intro_text <- "I am a Chief Warrant Officer Three (CW3) assigned to the U.S. Army Criminal Investigation Command (CID). I have 19 years of law enforcement experience with over 17 years in leadership positions. I have supervised more than 1,500 felony criminal investigations and completed numerous military and civilian law enforcement investigative and leadership courses.  
+intro_text <- "Accomplished Army Veteran and Director of Criminal Investigations with over 19 years of investigative experience and more than 17 years in successive leadership roles.  Seeking a new career opportunity in which I can apply an educational background in evaluation and analytics.  Skilled at analyzing data to assess program or policy impacts while looking for actionable insight and opportunities for improvement.  
 
-I have travelled extensively and have a vast amount of experience working with governmental and non-governmental organizations around the world. Through my travels and networking, I have developed in-depth cultural awareness and a network of contacts in more than 20 countries spanning five continents.
-
-I am currently searching for a Criminal Intelligence Analyst position where I can combine my law enforcement and military experience with newly acquired skills in data analytics. I hope to use these skills and abilities to help combat violent crime and human trafficking; as well as, help identify transnational criminal and terrorist organizations."
+I have travelled extensively and have a vast amount of experience working with governmental and non-governmental organizations around the world. Through my travels and networking, I have developed in-depth cultural awareness and a network of contacts in more than 20 countries spanning five continents."
 
 cat(sanitize_links(intro_text))
 ```
