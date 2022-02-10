@@ -65,7 +65,7 @@ Contact {#contact}
 
 - <i class="fa fa-envelope"></i> robert.m.trehern@gmail.com
 - <i class="fa fa-github"></i> github.com/RTrehern-ASU
-- <i class="fa fa-phone"></i> +49 (152) 2440-8953
+- <i class="fa fa-phone"></i> +1 (336) 596-6551
 
 
 
